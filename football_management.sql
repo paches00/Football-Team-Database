@@ -364,6 +364,36 @@ ALTER TABLE `team`
   ADD CONSTRAINT `team_ibfk_1` FOREIGN KEY (`team_id`) REFERENCES `team_list` (`team_id`);
 COMMIT;
 
+--
+-- Create view 'player_performance'
+--
+CREATE VIEW player_performance
+AS 
+SELECT 
+    *
+FROM
+    Match_Events, Player_Performance, Match, Events;
+
+--
+-- Create view 'player_administration'
+--
+CREATE VIEW player_administration
+AS 
+SELECT 
+  *
+FROM
+    Teams_List, Player_Type, Occupation_Type, Hobbies, Seasons, Events;
+
+--
+-- Create view 'team_coordination'
+--
+CREATE VIEW team_coordination
+AS 
+SELECT 
+    *
+FROM
+    Team, Match, Teams_List;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
